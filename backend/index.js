@@ -5,14 +5,8 @@ const app = express()
 const mainRouter = require("./routes/mainRouter")
 
 app.use(express.json())
-
-// app.use(
-//     cors({
-//     origin : "*"
-// }))
+app.use(cors())
 
 app.use("/notes/v1" , mainRouter)
-
-
 
 app.listen(3000)

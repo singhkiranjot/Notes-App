@@ -5,7 +5,6 @@ const zod = require("zod")
 const jwt = require("jsonwebtoken")
 const { JWT_SECRET } = require("../config")
 const { User } = require("../db")
-const { message } = require("statuses")
 
 
 
@@ -40,16 +39,16 @@ router.post("/signup" , async (req,res) => {
         password : req.body.password,
         name : req.body.name
     })
-    const userid = user._id
+    const userId = user._id
 
     const token = jwt.sign({
-        username:req.body.username
+        userId
     } , JWT_SECRET)
 
     res.json({
         message : "user created",
         token : token,
-        userId : userid
+        userId : userId
     })
 })
 
@@ -79,7 +78,7 @@ router.post("/signin" , async (req,res) => {
 
     if(user){
         const token = jwt.sign({
-            userid : user._id
+            userId : user._id
         } , JWT_SECRET)
 
         return res.json({
@@ -93,10 +92,6 @@ router.post("/signin" , async (req,res) => {
     })
 
 })
-
-
-
-
 
 
 module.exports = router

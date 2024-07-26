@@ -10,16 +10,25 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User" , userSchema)
 
-// const notesSchema = new mongoose.Schema({
-//     userId : {
-//         type : mongoose.Schema.Types.ObjectId,
-//         ref : "user",
-//         required : true
-//     }
-// })
+const notesSchema = new mongoose.Schema({
+    userId : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "user",
+        required : true
+    },
+    title : {
+        type : String,
+    },
+    content : {
+        type : String,
+        required : true
+    }
+})
 
+const Note = mongoose.model("Note" , notesSchema)
 
 
 module.exports = {
     User,
+    Note
 }
