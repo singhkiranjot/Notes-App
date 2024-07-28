@@ -1,8 +1,13 @@
+import { Navbar } from "../components/Navbar"
 
 
 export const Dashboard = () =>{
     return(
-        <div className="text-center">home</div>
+        <>
+            <Navbar name={"kiranjot singh"} /> 
+
+
+        </>
     )
 }
 
