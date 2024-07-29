@@ -14,7 +14,7 @@ export const SearchBar = ({value , onChange , handelSearch , onClearSearch}) => 
                 onChange={onChange}
                 />
                 
-                    <IoMdClose className="text-slate-500 text-xl cursor-pointer mr-3 hover:text-black" onClick={onClearSearch} />
+                    {value && <IoMdClose className="text-slate-500 text-xl cursor-pointer mr-3 hover:text-black" onClick={onClearSearch} />}
                 
                 <FaMagnifyingGlass className="text-slate-500 hover:text-black cursor-pointer" onClick={handelSearch}/>
             </div>
